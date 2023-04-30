@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Button text="Import PadCrafter Json from Clipboard" display-tooltip-when-elided="true" name="ButtonImportJsonFromClipboard" />
+    <ui:Button text="Export PadCrafter Json to Clipboard" display-tooltip-when-elided="true" name="ButtonExportJsonToClipboard" />
+    <ui:Button text="Reset Imported Data" display-tooltip-when-elided="true" name="ButtonResetImportedData" />
+    <ui:ScrollView name="ImportedJsonScrollView" style="flex-grow: 1;">
+        <ui:TextField picking-mode="Ignore" label="Imported PadCrafter Json" text="filler text" name="ImportedPadCrafterJson" password="false" focusable="false" style="align-items: stretch; flex-direction: column;" />
+    </ui:ScrollView>
+    <ui:Button text="Button" display-tooltip-when-elided="true" />
+</ui:UXML>
