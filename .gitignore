@@ -73,3 +73,6 @@ crashlytics-build.properties
 PadCrafterJsonImporter/Library/
 PadCrafterJsonImporter/Temp/
 PadCrafterJsonImporter/UserSettings/
+PadCrafterJsonImporter/.idea/
+PadCrafterJsonImporter/Logs/
+PadCrafterJsonImporter/obj/
