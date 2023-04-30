@@ -1,0 +1,16 @@
+{
+  "name": "com.pixelwizards.package-utils",
+  "displayName": "PixelWizards - Package Utilities",
+  "version": "0.1.0-preview.9",
+  "unity": "2018.4",
+  "description": "Tool to help manage the creation of custom packages",
+  "author": {
+    "name": "Pixel Wizards",
+    "email": "support@pixelwizards.ca",
+    "url": "https://github.com/PixelWizards"
+  },
+  "keywords": [],
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "1.1.2"
+  }
+}
