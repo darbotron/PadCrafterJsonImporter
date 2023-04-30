@@ -80,6 +80,7 @@ namespace Darbotron.Common.Packages
 	[CreateAssetMenu( menuName = "Package Tools/Package Definition", fileName = "PackageDef.asset" )]
 	public class PackageDefinitionAsset : ScriptableObject
 	{
+		[Header( "Package Paths (relative to project root)" )]
 		public string PackageSourceFolder                  = "Assets/Package";
 		public string DestinationPackageParentFolder       = "../Packages";
 		public bool   OverwriteExistingDestinationOnExport = true;
