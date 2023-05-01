@@ -10,12 +10,11 @@ namespace com.darbotron.padcrafterjsonimporter
 {
 	public class PadCrafterJsonImporter : EditorWindow
 	{
-		private static readonly string k_PrefsKey_FileLocation_OutputAsset = $"{typeof( PadCrafterJsonImporter ).FullName}.{nameof(k_PrefsKey_FileLocation_OutputAsset)}";
-
-
 		private const string k_PathInPackageFolderOfUiXMLAsset       = "com.darbotron.padcrafterjsonimporter/Editor/UIBuilder/PadCrafterJsonImporterUI.uxml";
 		private const string k_JsonForEmptyInputActionAsset          = @"{""name"": ""EmptyInputActionAsset"",""maps"": [],""controlSchemes"": []}";
 		private const string k_Path_DefaultGeneratedInputActionAsset = "Assets/InputActionAssetFromPadCrafterJson.inputactions";
+
+		private static readonly string k_PrefsKey_FileLocation_OutputAsset = $"{typeof( PadCrafterJsonImporter ).FullName}.{Application.productName}.{nameof(k_PrefsKey_FileLocation_OutputAsset)}";
 
 
 		//------------------------------------------------------------------------
@@ -321,7 +320,7 @@ namespace com.darbotron.padcrafterjsonimporter
 
 
 			// query user for save path - early out on error
-			var previouslyStoredAssetPath = PlayerPrefs.GetString( k_PrefsKey_FileLocation_OutputAsset, k_Path_DefaultGeneratedInputActionAsset );
+			var previouslyStoredAssetPath = GetLastSavePathFromPlayerPrefs();
 			var previousAssetDirectory    = Path.GetDirectoryName( previouslyStoredAssetPath );
 			var previousAssetFilename     = Path.GetFileNameWithoutExtension( previouslyStoredAssetPath );
 			var previousAssetExtension    = Path.GetExtension( previouslyStoredAssetPath ).Replace( ".", "" );
@@ -358,7 +357,7 @@ namespace com.darbotron.padcrafterjsonimporter
 
 			assetPathForInputActionAsset = Path.ChangeExtension( assetPathForInputActionAsset, UnityEngine.InputSystem.InputActionAsset.Extension );
 
-			PlayerPrefs.SetString( k_PrefsKey_FileLocation_OutputAsset, assetPathForInputActionAsset );
+			CacheLastSavePathToPlayerPrefs( assetPathForInputActionAsset );
 
 
 			// create an empty asset to modify
@@ -422,6 +421,11 @@ namespace com.darbotron.padcrafterjsonimporter
 
 			AssetDatabase.Refresh();
 		}
+
+
+		//------------------------------------------------------------------------
+		private static string GetLastSavePathFromPlayerPrefs()              => PlayerPrefs.GetString( k_PrefsKey_FileLocation_OutputAsset, k_Path_DefaultGeneratedInputActionAsset );
+		private static string CacheLastSavePathToPlayerPrefs( string path ) => PlayerPrefs.GetString( k_PrefsKey_FileLocation_OutputAsset, path );
 
 
 		//------------------------------------------------------------------------
