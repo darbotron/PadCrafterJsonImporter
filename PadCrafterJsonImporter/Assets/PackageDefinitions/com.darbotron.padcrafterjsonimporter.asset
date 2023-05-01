@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: com.darbotron.padcrafterjsonimporter
   m_EditorClassIdentifier: 
   PackageSourceFolder: Assets/com.darbotron.padcrafterjsonimporter
-  DestinationPackageParentFolder: ../../com.darbotron.padcrafterjsonimporter
+  DestinationPackageParentFolder: ../../PadCrafterJsonImporter
   OverwriteExistingDestinationOnExport: 1
   m_packageUtilsModel:
     name: com.darbotron.padcrafterjsonimporter
@@ -28,6 +28,8 @@ MonoBehaviour:
       url: 
     keywords: []
     dependencies:
-      entries: []
+      entries:
+      - name: com.unity.inputsystem
+        version: 1.4.4
     samples: []
   m_lstNamesOfTopLevelPackageFoldersToHideInPackage: []

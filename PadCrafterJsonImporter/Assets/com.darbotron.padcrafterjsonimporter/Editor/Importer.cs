@@ -339,6 +339,19 @@ namespace com.darbotron.padcrafterjsonimporter
 				return;
 			}
 
+			// ensure the folder exists
+			try
+			{
+				var outputDirectory = Path.GetDirectoryName( assetOutputPathFullPath );
+				if( ! Directory.Exists( outputDirectory ) )
+				{
+					Directory.CreateDirectory( outputDirectory );
+				}
+			}
+			catch( Exception ex )
+			{
+			}
+
 			// convert the path into one relative to the project folder and save the path in playerprefs
 			var projectFolderPath            = Utility.GetProjectFolderPath();
 			var assetPathForInputActionAsset = Utility.GetPathRelativeTo( assetOutputPathFullPath, projectFolderPath );
@@ -392,6 +405,8 @@ namespace com.darbotron.padcrafterjsonimporter
 			// Looked at the InputSystem Package code to see how to do this
 			try
 			{
+				AssetDatabase.Refresh();
+
 				ProjectWindowUtil.CreateAssetWithContent
 				(
 					assetPathForInputActionAsset,
