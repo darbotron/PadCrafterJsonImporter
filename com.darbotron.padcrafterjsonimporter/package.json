@@ -1,0 +1,18 @@
+{
+  "samples": [],
+  "name": "com.darbotron.padcrafterjsonimporter",
+  "displayName": "PadCrafter Json Importer",
+  "version": "0.0.1-preview",
+  "unity": "2021.3",
+  "description": "",
+  "category": "",
+  "author": {
+    "name": "Alex Darby",
+    "email": "",
+    "url": ""
+  },
+  "keywords": [],
+  "dependencies": {
+    "com.unity.inputsystem": "1.4.4"
+  }
+}
