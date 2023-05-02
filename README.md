@@ -1,5 +1,5 @@
 # PadCrafterJsonImporter
-UPM package which imports a json string exported from PadCrafter.com into a Unity InputSystem InputActionAsset
+UPM package which imports a json string exported from PadCrafter.com into a Unity InputSystem `InputActionAsset`
 
 # Installing
 You can:
@@ -21,7 +21,20 @@ Once you've installed the package into your project.
 - assuming there was no error you can click the 'Generate Input Action Asset' button...
 - this will cause a system standard save panel to appear allowing you to choose where to save your asset and what to call it
 - (NOTE: if you try to save outside your project's root folder this will currently cause undefined behaviour)
-- once you've saved the InputActionAsset you should be able to open it & edit it with the normal Unity InputSystem editor
+- once you've saved the `InputActionAsset` you should be able to open it & edit it with the normal Unity InputSystem editor
+
+# Notes
+- **this importer does nothing magic!** 
+ - there is no perfect 1:1 correspondence from PadCrafter to an `InputActionAsset` 
+ - you will almost certainly have to manually edit the InputActionAsset it creates
+- what the importer does
+ - each Controller Scheme tab from PadCrafter maps to an InputSystem `ActionMap`
+ - each control with a name / description will create an InputSystem `Action` in that `ActionMap`
+ - the binding paths for each `Action` will match the button on the Control Scheme
+- other points of note
+ - only creates InputActions for named/described PadCrafter controls
+ - uses the PadCrafter name/description strings verbatim
+ - assigns default InputActionType of InputActionType.Value to Sticks, everything else is InputActionType.Button
 
 # Support
 This importer was made out of the goodness of my heart for free so I will not be supporting it!
