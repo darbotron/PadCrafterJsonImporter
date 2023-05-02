@@ -18,7 +18,7 @@ MonoBehaviour:
   m_packageUtilsModel:
     name: com.darbotron.padcrafterjsonimporter
     displayName: PadCrafter Json Importer
-    version: 0.0.1-preview
+    version: 0.0.4-preview
     unity: 2021.3
     description: 
     category: 

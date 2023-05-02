@@ -1,8 +1,14 @@
 namespace com.darbotron.padcrafterjsonimporter
 {
+	using UnityEngine.InputSystem;
+
 	[System.Serializable]
 	public class Buttons
 	{
+		//
+		// to see this on PadCrafter paste this URL into a browser ;D
+		// https://www.padcrafter.com/index.php?templates=lookupTable&leftTrigger=leftTrigger&rightBumper=rightShoulder&rightTrigger=rightTrigger&leftStickClick=leftStickButton&aButton=buttonSouth&xButton=buttonWest&bButton=buttonEast&yButton=buttonNorth&rightStickClick=rightStickButton&backButton=selectButton&startButton=startButton&dpadUp=dpad%2Fup&dpadDown=dpad%2Fdown&dpadRight=dpad%2Fright&dpadLeft=dpad%2Fleft&plat=0&leftBumper=leftShoulder&col=%23242424%2C%23606A6E%2C%23FFFFFF&leftStick=leftStick&rightStick=rightStick#
+		//
 		public string leftTrigger;     // matches Unity "<Gamepad>/leftTrigger"
 		public string rightBumper;     // matches Unity "<Gamepad>/rightShoulder"
 		public string rightTrigger;    // matches Unity "<Gamepad>/rightTrigger"
@@ -47,6 +53,32 @@ namespace com.darbotron.padcrafterjsonimporter
 				{ nameof( rightStick ),      "<Gamepad>/rightStick" },
             };
 		}
+
+		public static System.Collections.Generic.Dictionary< string, InputActionType > GetLookUpPadCrafterButtonFieldNameToActionType()
+		{
+			return new System.Collections.Generic.Dictionary< string, InputActionType >
+			{
+				{ nameof( leftTrigger ),     InputActionType.Value },
+				{ nameof( rightBumper ),     InputActionType.Button },
+				{ nameof( rightTrigger ),    InputActionType.Value },
+				{ nameof( leftStickClick ),  InputActionType.Button },
+				{ nameof( aButton ),         InputActionType.Button },
+				{ nameof( xButton ),         InputActionType.Button },
+				{ nameof( bButton ),         InputActionType.Button },
+				{ nameof( yButton ),         InputActionType.Button },
+				{ nameof( rightStickClick ), InputActionType.Button },
+				{ nameof( backButton ),      InputActionType.Button },
+				{ nameof( startButton ),     InputActionType.Button },
+				{ nameof( dpadUp ),          InputActionType.Button },
+				{ nameof( dpadDown ),        InputActionType.Button },
+				{ nameof( dpadRight ),       InputActionType.Button },
+				{ nameof( dpadLeft ),        InputActionType.Button },
+				{ nameof( leftBumper ),      InputActionType.Button },
+				{ nameof( leftStick ),       InputActionType.Value },
+				{ nameof( rightStick ),      InputActionType.Value },
+			};
+		}
+
 	}
 
 	[System.Serializable]

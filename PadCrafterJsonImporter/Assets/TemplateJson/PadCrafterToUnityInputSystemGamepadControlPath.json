@@ -1,0 +1,29 @@
+{
+	"PadCrafter": {
+		"controllerSchemes": [
+			{
+				"templatename": "lookupTable",
+				"buttons": {
+					"leftTrigger": "leftTrigger",
+					"rightBumper": "rightShoulder",
+					"rightTrigger": "rightTrigger",
+					"leftStickClick": "leftStickButton",
+					"aButton": "buttonSouth",
+					"xButton": "buttonWest",
+					"bButton": "buttonEast",
+					"yButton": "buttonNorth",
+					"rightStickClick": "rightStickButton",
+					"backButton": "selectButton",
+					"startButton": "startButton",
+					"dpadUp": "dpad/up",
+					"dpadDown": "dpad/down",
+					"dpadRight": "dpad/right",
+					"dpadLeft": "dpad/left",
+					"leftBumper": "leftShoulder",
+					"leftStick": "leftStick",
+					"rightStick": "rightStick"
+				}
+			}
+		]
+	}
+}

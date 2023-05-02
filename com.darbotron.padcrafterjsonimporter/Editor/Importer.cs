@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEditor;
 using UnityEngine.UIElements;
 
@@ -14,7 +15,7 @@ namespace com.darbotron.padcrafterjsonimporter
 		private const string k_JsonForEmptyInputActionAsset          = @"{""name"": ""EmptyInputActionAsset"",""maps"": [],""controlSchemes"": []}";
 		private const string k_Path_DefaultGeneratedInputActionAsset = "Assets/InputActionAssetFromPadCrafterJson.inputactions";
 
-		private static readonly string k_PrefsKey_FileLocation_OutputAsset = $"{typeof( PadCrafterJsonImporter ).FullName}.{Application.productName}.{nameof(k_PrefsKey_FileLocation_OutputAsset)}";
+		private static readonly string k_PrefsKey_FileLocation_OutputAsset = $"{nameof(k_PrefsKey_FileLocation_OutputAsset)}";
 
 
 		//------------------------------------------------------------------------
@@ -287,13 +288,13 @@ namespace com.darbotron.padcrafterjsonimporter
 			}
 
 			// local function using reflection to add an action to a serialized ActionMap of a serialized InputActionAsset
-			SerializedProperty AddAction( SerializedProperty serializedActionMap, string nameOfAction )
+			SerializedProperty AddAction( SerializedProperty serializedActionMap, string nameOfAction, InputActionType inputActionType )
 			{
 				// note: need to pass Type.Missing for optional params in reflection
 				var newActionAsProperty = minfoSerializationHelper_AddAction.Invoke( null, new object[]{ serializedActionMap, Type.Missing } ) as SerializedProperty;
 
 				newActionAsProperty.FindPropertyRelative( "m_Name" ).stringValue = nameOfAction;
-
+				newActionAsProperty.FindPropertyRelative("m_Type").intValue      = (int)inputActionType;
 				return newActionAsProperty;
 			}
 
@@ -349,6 +350,8 @@ namespace com.darbotron.padcrafterjsonimporter
 			}
 			catch( Exception ex )
 			{
+				CheckForErrorConditionAndShowPopUpWithMessage( errorCondition: true, $"failed to create output directory: {assetOutputPathFullPath} - exception: {ex.Message}" );
+				return;
 			}
 
 			// convert the path into one relative to the project folder and save the path in playerprefs
@@ -366,34 +369,38 @@ namespace com.darbotron.padcrafterjsonimporter
 
 
 			// iterate the imported json and use it to modify the (initially) empty InputActionAsset
-			var dictPadCrafterButtonNameToInputSystemBindingPath = Buttons.GetLookUpPadCrafterButtonFieldNameToActionBindingPath();
-
-
-			// local function to get unique string for any missing strings
-			int uniqueNumberForMissingStrings = 0;
-			string GetUniqueMissingString() => $"MissingName_{uniqueNumberForMissingStrings:00}";
-
-			foreach( var controllerScheme in m_padCrafterContainer.PadCrafter.controllerSchemes )
 			{
-				// action maps MUST have names
-				var actionMapName = string.IsNullOrEmpty( controllerScheme.templatename ) ? GetUniqueMissingString() : controllerScheme.templatename;
+				var dictPadCrafterButtonNameToInputSystemBindingPath	= Buttons.GetLookUpPadCrafterButtonFieldNameToActionBindingPath();
+				var dictPadCrafterButtonNameToInputActionType			= Buttons.GetLookUpPadCrafterButtonFieldNameToActionType();
 
-				var newMapAsSerializedProperty = AddActionMap( inputActionsSerialised, actionMapName );
+				// local function to get unique string for any missing strings
+				int uniqueNumberForMissingStrings = 0;
+				string GetUniqueMissingString() => $"MissingName_{uniqueNumberForMissingStrings:00}";
 
-				foreach( var fieldInfo in typeof( Buttons ).GetFields( BindingFlags.Instance | BindingFlags.Public ) )
+				foreach( var controllerScheme in m_padCrafterContainer.PadCrafter.controllerSchemes )
 				{
-					if( dictPadCrafterButtonNameToInputSystemBindingPath.TryGetValue( fieldInfo.Name, out var bindingPathForButton ) )
+					// action maps MUST have names
+					var actionMapName = string.IsNullOrEmpty( controllerScheme.templatename ) ? GetUniqueMissingString() : controllerScheme.templatename;
+
+					var newMapAsSerializedProperty = AddActionMap( inputActionsSerialised, actionMapName );
+
+					foreach( var fieldInfo in typeof(Buttons).GetFields( BindingFlags.Instance | BindingFlags.Public ) )
 					{
-						// only add actions for PAdCrafter buttons with strings
-						var padCrafterButtonDescriptorString = fieldInfo.GetValue( controllerScheme.buttons ) as string;
-
-						if( string.IsNullOrEmpty( padCrafterButtonDescriptorString ) )
+						if(		dictPadCrafterButtonNameToInputSystemBindingPath.	TryGetValue( fieldInfo.Name, out var bindingPathForButton )
+							&&  dictPadCrafterButtonNameToInputActionType.			TryGetValue( fieldInfo.Name, out var inputActionType ) )
 						{
-							continue;
-						}
+							// only add actions for PadCrafter buttons with strings
+							var padCrafterButtonDescriptorString = fieldInfo.GetValue( controllerScheme.buttons ) as string;
 
-						var newActionAsSerializedProperty = AddAction( newMapAsSerializedProperty, padCrafterButtonDescriptorString );
-						AddBinding( newActionAsSerializedProperty, newMapAsSerializedProperty, bindingPathForButton );
+							if( string.IsNullOrEmpty( padCrafterButtonDescriptorString ) )
+							{
+								continue;
+							}
+
+							var newActionAsSerializedProperty = AddAction( newMapAsSerializedProperty, padCrafterButtonDescriptorString, inputActionType );
+
+							AddBinding( newActionAsSerializedProperty, newMapAsSerializedProperty, bindingPathForButton );
+						}
 					}
 				}
 			}
@@ -424,8 +431,9 @@ namespace com.darbotron.padcrafterjsonimporter
 
 
 		//------------------------------------------------------------------------
-		private static string GetLastSavePathFromPlayerPrefs()              => PlayerPrefs.GetString( k_PrefsKey_FileLocation_OutputAsset, k_Path_DefaultGeneratedInputActionAsset );
-		private static string CacheLastSavePathToPlayerPrefs( string path ) => PlayerPrefs.GetString( k_PrefsKey_FileLocation_OutputAsset, path );
+		private static string GetPlayerPrefsKey()                           => $"{typeof( PadCrafterJsonImporter ).FullName}.{Application.productName}.{k_PrefsKey_FileLocation_OutputAsset}";
+		private static string GetLastSavePathFromPlayerPrefs()              => PlayerPrefs.GetString( GetPlayerPrefsKey(), k_Path_DefaultGeneratedInputActionAsset );
+		private static void   CacheLastSavePathToPlayerPrefs( string path ) => PlayerPrefs.GetString( GetPlayerPrefsKey(), path );
 
 
 		//------------------------------------------------------------------------
