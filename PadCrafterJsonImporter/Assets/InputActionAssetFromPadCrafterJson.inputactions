@@ -1,0 +1,374 @@
+{
+    "name": "EmptyInputActionAsset",
+    "maps": [
+        {
+            "name": "lookupTable",
+            "id": "c9e28b49-4219-4092-9d88-e2f33972b36b",
+            "actions": [
+                {
+                    "name": "leftTrigger",
+                    "type": "Button",
+                    "id": "dd79eb29-2a4d-4fa2-b0d8-a3b60bc0d08d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "rightShoulder",
+                    "type": "Button",
+                    "id": "092ac9e9-81cc-4282-8704-50731b18937e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "rightTrigger",
+                    "type": "Button",
+                    "id": "62f12c93-c4d3-40a7-9790-b15b5b0b656d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "leftStickButton",
+                    "type": "Button",
+                    "id": "fa589b10-5f3b-4db0-8245-e068084ede1e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "buttonSouth",
+                    "type": "Button",
+                    "id": "6f503970-4d8a-4b67-832a-969cdec422a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "buttonWest",
+                    "type": "Button",
+                    "id": "0130d2b8-15cd-4763-876b-3e6d6634f417",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "buttonEast",
+                    "type": "Button",
+                    "id": "dc0087be-4d48-4a07-a00d-05ec9eb4d412",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "buttonNorth",
+                    "type": "Button",
+                    "id": "3a74740e-cae2-455e-adc0-29579f1c7e75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "rightStickButton",
+                    "type": "Button",
+                    "id": "ae18a493-f35a-413c-a05e-e1db305ad767",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "selectButton",
+                    "type": "Button",
+                    "id": "636f52d1-0c9b-4bb3-b0b5-1dbc6bcf89c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "startButton",
+                    "type": "Button",
+                    "id": "cbac662c-e202-42c8-9039-44911c53af74",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "dpad/up",
+                    "type": "Button",
+                    "id": "3d5da34e-5d8d-4420-9e08-ce685d99dadb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "dpad/down",
+                    "type": "Button",
+                    "id": "19f54372-b7b0-4eba-beca-82744128803d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "dpad/right",
+                    "type": "Button",
+                    "id": "6e2e0067-5e01-40e4-adcb-8a8e37cabb8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "dpad/left",
+                    "type": "Button",
+                    "id": "e91425e5-6d74-4bab-87c8-1841f6433875",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "leftShoulder",
+                    "type": "Button",
+                    "id": "60bc1711-c781-443d-8ee7-ea6263c1d4f9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "leftStick",
+                    "type": "Value",
+                    "id": "c897d979-7e4f-4024-a15b-3dac63e09055",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "rightStick",
+                    "type": "Value",
+                    "id": "8da5578d-7e5b-4909-ac68-1744ec1bc5ca",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a41f3283-6a89-4af8-a2d1-4dd0dc29c3d8",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58a79447-068f-4140-8bf4-1e3ebf92952b",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c14a2bd-74a9-4bcc-99f2-aa09e743b875",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38605409-fbad-42d0-80d9-3c7ae9d78819",
+                    "path": "<Gamepad>/leftStickButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftStickButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa37898f-4c12-4788-96be-3f15cd7d40b4",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "buttonSouth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1584e6a9-e7b7-482c-ad0d-2ddf3ac5233a",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "buttonWest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7bdb172d-8ab2-492b-8867-625f65d6608a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "buttonEast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9bdb406c-1f62-4370-9e9f-b1d134c2fb92",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "buttonNorth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "acf9ab5e-549e-49f4-ba5f-6099b0c95c36",
+                    "path": "<Gamepad>/rightStickButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightStickButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2480bbed-da19-4210-92ad-63d1973d8bec",
+                    "path": "<Gamepad>/selectButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "selectButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "00babb07-3688-4927-99d7-3bdeeca7b455",
+                    "path": "<Gamepad>/startButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "startButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eae672e1-8728-4640-b84d-9f4aec5ed066",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "dpad/up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "136d5544-ce8b-4f36-98b6-fdf3540c6625",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "dpad/down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eabb99f3-3fb1-444a-9930-c887ac9bde2b",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "dpad/right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5213769-ce5f-4171-aaf7-5a4828f2cad6",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "dpad/left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30d6610c-fdea-4394-8139-257ad2a3017e",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftShoulder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52c0417f-67fc-43f1-8a8b-137e7a186888",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69d479bf-4963-477a-8584-f73da54778c7",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

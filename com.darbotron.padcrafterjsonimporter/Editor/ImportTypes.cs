@@ -58,9 +58,9 @@ namespace com.darbotron.padcrafterjsonimporter
 		{
 			return new System.Collections.Generic.Dictionary< string, InputActionType >
 			{
-				{ nameof( leftTrigger ),     InputActionType.Value },
+				{ nameof( leftTrigger ),     InputActionType.Button },
 				{ nameof( rightBumper ),     InputActionType.Button },
-				{ nameof( rightTrigger ),    InputActionType.Value },
+				{ nameof( rightTrigger ),    InputActionType.Button },
 				{ nameof( leftStickClick ),  InputActionType.Button },
 				{ nameof( aButton ),         InputActionType.Button },
 				{ nameof( xButton ),         InputActionType.Button },
